@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, forwardRef, Get, HttpStatus, Inject, Param, Post, Res, UnprocessableEntityException } from '@nestjs/common';
+import { Body, Controller, Delete, forwardRef, Get, HttpStatus, Inject, Param, Post, Put, Res, UnprocessableEntityException } from '@nestjs/common';
 import { Response } from 'express';
 import { CarsService } from 'src/cars/cars.service';
 import { RatesService } from 'src/rates/rates.service';
@@ -92,7 +92,15 @@ export class RentHistoryController {
         }
     }
 
-
+    // update rent history
+    @Put('updateRentHistory/:id')
+    async updateRentHistory(@Res() res: Response,@Param() id: string, @Body() body: RantHistoryDto ){
+        try {
+            await this.RentHistoryService.updateRantHistory(id, body);
+        } catch (error) {
+            throw new UnprocessableEntityException(error);
+        }
+    }
 
 
 }

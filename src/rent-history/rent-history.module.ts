@@ -14,6 +14,7 @@ import { RentHistoryService } from './rent-history.service';
     forwardRef(() => CarsModule),
     forwardRef(() => RatesModule)
   ],
+  exports: [RentHistoryService],
   providers: [RentHistoryService]
 })
 export class RentHistoryModule {}

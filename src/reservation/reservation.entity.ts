@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
 @Entity()
 export class Reservation{
     @PrimaryGeneratedColumn()
@@ -11,12 +11,15 @@ export class Reservation{
     ratesId: string
 
     @Column()
-    duration: string
+    daysCount: number
+
+    @Column()
+    price : string
     
-    @Column()
-    startDate: Date
+    @CreateDateColumn({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP(6)'})
+    public startRantDay: Date
 
-    @Column()
-    endDate: Date
+    @CreateDateColumn({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP(6)'})
+    public endRantDay: Date
 
-}
+}    
