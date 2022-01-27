@@ -1,25 +1,26 @@
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
+
 @Entity()
-export class Reservation{
+export class Users{
     @PrimaryGeneratedColumn()
     id: string;
 
     @Column()
-    carId: string;
-
-    @Column()
-    ratesId: string;
-
-    @Column()
-    daysCount: number;
-
-    @Column()
-    price : string;
+    userFirstName: string;
     
-    @CreateDateColumn({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP(6)'})
-    public startRantDay: Date;
+    @Column()
+    userLastName: string;
+
+    @Column()
+    userAge: number;
+
+    @CreateDateColumn()
+    public birthDate: Date;
+
+    @Column()
+    userHistoryId: string;
 
     @CreateDateColumn({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP(6)'})
-    public endRantDay: Date;
-
-}    
+    public userCreateDate: Date;
+    
+}

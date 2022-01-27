@@ -63,7 +63,7 @@ export class ReservationController {
                     carId: body.carId,
                     ratesId: body.ratesId,
                     daysCount: body.daysCount,
-                    price: reservationPrice,
+                    price: +(reservationPrice) * + (body.daysCount),
                     startRantDay: body.startRantDay,
                     endRantDay: date
                 });
@@ -117,14 +117,6 @@ export class ReservationController {
             }
         }
 
-        // // update reservation by id
-        // @Put('updateReservation/:id')
-        // async updateReservationById(@Res() res: Response, @Param() id1: string, @Body() body: ReservationDto){
-        //     try {
-        //         const updatingReservation = await this.reservationService.updateReservationById({id:id1},body);
-        //     } catch (error) {
-        //         throw new UnprocessableEntityException(error);
-        //     }
-        // }
+      
 
 }

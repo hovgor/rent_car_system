@@ -5,9 +5,10 @@ import { RatesModule } from './rates/rates.module';
 import { ReservationModule } from './reservation/reservation.module';
 import { Repository } from 'typeorm';
 import { RentHistoryModule } from './rent-history/rent-history.module';
+import { UsersModule } from './users/users.module';
 import ormconfig from '../ormconfig';
 @Module({
-  imports: [CarsModule, RatesModule, ReservationModule, TypeOrmModule.forRoot(ormconfig), RentHistoryModule],
+  imports: [CarsModule, RatesModule, ReservationModule, TypeOrmModule.forRoot(ormconfig), RentHistoryModule, UsersModule],
   controllers: [],
   providers: [Repository],
 })
